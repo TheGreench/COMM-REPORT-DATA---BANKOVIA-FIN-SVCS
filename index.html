@@ -17,20 +17,176 @@
     <!-- Metas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Bankovia's Offical Web. Also used to get information from users.">
+    <meta name="description" content="Bankovia is the economy bot developed by the Library of Code Community.">
     <meta name="keywords" content="LOC, Discord, Jira, Library of Code, Bankovia">
     <meta name="author" content="Library of Code sp-us | Department of Engineering">
-    <!-- <meta name="url" content="//report.libraryofcode.org/"> -->
+    <!-- <meta name="url" content="When We Get It"> -->
     <meta name="image" content="//static.libraryofcode.org/library_of_code_comm_red.png">
     <meta name="theme-color" content="#ee831b">
     <!-- Scripts -->
-    <script src="./public/scripts/main.js"></script>
-    <script src="https://gitlab.libraryofcode.org/snippets/7.js"></script>
+    <!-- Style -->
+    <style>
+        * {
+        box-sizing: inherit;
+        transition-property: all;
+        transition-duration: .6s;
+        transition-timing-function: ease;
+        }
+        #nav {
+            padding: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #333333;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+        #footer {
+            border-top: 2px solid black;
+            background-color: #333333;
+        }
+        #hr-brand {
+            width: 50%;
+            margin-right:25%;
+            margin-left: 255;
+            background-color: white;
+            height: 2px;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #505050;
+        }
+        #nav ul li a {
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+        }
+        #nav ul li a:hover {
+            background-color: white;
+            color: #c71313;
+            border-radius: 10px 10px 10px 10px;
+        }
+        #active {
+            background-color: white;
+            color: #c71313 !important;
+        }
+        #body {
+            margin-top: 20px;
+            margin-left: 8%;
+            margin-right: 8%; 
+            padding: 10px;
+            background-color: #333333;
+            border: 2px solid black;
+            border-radius: 10px 10px 10px 10px;
+            color: white;
+        }
+        #bodyCard {
+            padding: 20px;
+            background-color: #505050;
+            border: 1px solid black;
+            border-radius: 10px 10px 10px 10px;
+        }
+        #h1EmbedStyle {
+            border-left: 5px solid #c71313;
+            border-radius: 5px 5px;
+            padding: 5px;
+        }
+        #footer {
+            padding: 20px;
+            background-color: #333333;
+            border-top: 2px solid black;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Main Div -->
-    <div>
+    <div id="container">
+        
+        <!-- Navbar -->
+        <nav id="nav">
+            <p class="nav justify-content-center" style="color: white;font-size: 40px;">
+                Bankovia
+            </p>
+            <p class="nav justify-content-center" style="color: white;font-size: 15px;">
+                <i>The Community Store for Library Of Code sp-us</i>
+            </p>
+            <hr id="hr-brand">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link" id="active" href="/">Home</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                  <a class="nav-link" href="//loc.sh/discord">Discord Server</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                  <a class="nav-link" href="/loc-score-bankovia">Login - Account</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="//libraryofcode.org">Main Web</a>
+                  </li>
+            </ul>
+        </nav>
 
+        <!-- Body Content -->
+        <div id="body">
+            <div id="bodyCard">
+                <h1 id="h1EmbedStyle">&nbsp;What is Bankovia? <span class="badge badge-danger" style="font-size: 15px;">Early Alpha</span></h1>
+                <p style="font-size: 17px;">
+                    Bankovia is the economy bot developed by the Library of Code Community. This bot is only operated and overseen by the Library of Code Engineering Team. It is developed primarily by the community. The bot developers have administrator permissions over the bot. If you would like to report an issue, you may contact one of them.
+                </p>
+                <br>
+                <h3 id="h1EmbedStyle">&nbsp;Bot Administrators</h3>
+                <p style="font-size: 17px;">
+                    The bot administrators are those who operate the bot. You can basically consider them as official representatives of the Library of Code sp-us.
+                    <br>
+                    <ul>
+                        <li>Matthew, AD, FSEN | matthew@staff.libraryofcode.org</li>
+                    </ul>
+                </p>
+                <h3 id="h1EmbedStyle">&nbsp;Developers</h3>
+                <p style="font-size: 17px;">
+                    The developers have control over the bot, the database and the code. If you need help with something related to the bot, you can feel free to contact us.
+                    <br>
+                    <ul>
+                        <li>Hiroyuki | hiroyuki@staff.moniqueleague.ml</li>
+                        <li>jtsshieh</li>
+                        <li>TheGreench, AS, ENG-I | greench@staff.libraryofcode.org</li>
+                        <li>Shmnel</li>
+                    </ul>
+                </p>
+                <h3 id="h1EmbedStyle">&nbsp;Bot Administrators</h3>
+                <p style="font-size: 17px;">
+                    The bot administrators are those who operate the bot. You can basically consider them as official representatives of the Library of Code sp-us.
+                </p>
+            </div>
+            <br>
+            <div id="bodyCard">
+                <h3 id="h1EmbedStyle">&nbsp;Disclaimer</h3>
+                <p style="font-size: 17px;">
+                    This project is hardcoded for the Library of Code Discord server.<br>
+                    You may use it at your own risk. We are not obliged to provide support with its setup or help you fix any issues.<br>
+                    We are not responsible for any mishaps that happen in your server due to an action invoked this bot. By using this bot, you acknowledge that you are completely responsible for its use and any actions caused by it.<br>
+                    This bot uses four different currencies in its economy: Gem Fragments, Rubies, Elixirs and Crystals, each of which with its own rarity.<br>
+                    You can buy a items in the shop, some of which are automatically handled by the system and others require to be manually handled by authorized staff members.
+                </p>
+            </div>
+        </div>
+
+        <br><br>
+
+        <!-- Footer -->
+        <div id="footer">
+            <p>
+                LIBRARY OF CODE SP-US | DEPT. OF COMMUNITY ENGAGEMENT & ENGINEERING
+                <br>
+                <a href="https://loc.sh/discord">Discord Server</a> | <a href="//libraryofcode.org">Main Web</a> | <a href="https://loc.sh/support">Support</a> | <a href="///directory.libraryofcode.org">Staff Directory</a>
+                <br>
+                COMM REPORT DATA - BANKOVIA FIN SVCS
+            </p>
+        </div>
     </div>
 
     <!-- Scripts -->
