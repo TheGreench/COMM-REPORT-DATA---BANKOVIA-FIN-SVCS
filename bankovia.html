@@ -11,9 +11,8 @@
 <head>
     <title>COMM REPORT DATA - BANKOVIA FIN SVCS</title>
     <!-- Links -->
-    <link rel="stylesheet" href="./public/css/main.css">
     <link rel="icon" type="image/png" href="//static.libraryofcode.org/library_of_code_comm_red.png">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Metas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +23,7 @@
     <meta name="image" content="//static.libraryofcode.org/library_of_code_comm_red.png">
     <meta name="theme-color" content="#ee831b">
     <!-- Scripts -->
-    <script type="type/javascript" src="/index.js"></script>
+    <script src="index.js"></script>
     <!-- Style -->
     <style>
         * {
@@ -141,14 +140,14 @@
                         <input id="pin" type="text" class="form-control col-md-12" placeholder="XXXX" aria-label="pin" aria-describedby="basic-addon3" maxlength="4">
                         <!-- Submit Personal Pin -->
                         <div class="input-group-append">
-                            <button class="btn btn-dark" type="submit" onclick="js:RequestData()" id="enterB">Enter</button>
+                            <button class="btn btn-dark" type="submit" onclick="RequestData()" id="enterB">Enter</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="data-pre" style="display: none;">
+        <div id="data-pre" style="display: none">
             <div id="body">
                 <div dir="bodyCard">
                     <h4 id="h1EmbedStyle">&nbsp;SInfo</h4>
