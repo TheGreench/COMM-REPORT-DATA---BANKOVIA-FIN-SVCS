@@ -1,5 +1,4 @@
 <!--
-  Library of Code sp-us | Department of Engineering
   COMM REPORT DATA - BANKOVIA FIN SVCS
   Written by: TheGreench, AS, ENG-I <greench@staff.libraryofcode.org>
     Last Update: Saturday, October 17, 2020
@@ -19,41 +18,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Bankovia is the economy bot developed by the Library of Code Community.">
     <meta name="keywords" content="LOC, Discord, Jira, Library of Code, Bankovia">
-    <meta name="author" content="Library of Code sp-us | Department of Engineering">
     <!-- <meta name="url" content="When We Get It"> -->
     <meta name="image" content="//static.libraryofcode.org/library_of_code_comm_red.png">
     <meta name="theme-color" content="#ee831b">
     <!-- Scripts -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        function visible(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-        function invisible(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-        // const axios = require('axios').default;
-        const pin = document.getElementById('pin').value;
-        const userID = document.getElementById('userID').value;
-        if (pin < 4) return visible('invalidPIN');
-        if (!userID) return visible('invalidPIN');
-        const newPost = {
-            headers: { Authorization: 'keyHere' },
-            data: {
-                userID: userID,
-                pin: pin,
-            },
-        };
-        document.getElementById('enterB').onclick = async function sendPostRequest() {
-            try {
-                const resp = await axios.post('https://comm.libraryofcode.org/report/v2/soft', newPost);
-                console.log(resp.data);
-            } 
-            catch (error) {
-                console.log(error);
-            }
-        }
-    </script>
     <!-- Style -->
     <style>
         * {
@@ -215,9 +184,7 @@
         <!-- Footer -->
         <div id="footer">
             <p>
-                LIBRARY OF CODE SP-US | DEPT. OF COMMUNITY ENGAGEMENT & ENGINEERING
-                <br>
-                <a href="https://loc.sh/discord">Discord Server</a> | <a href="//libraryofcode.org">Main Web</a> | <a href="https://loc.sh/support">Support</a> | <a href="///directory.libraryofcode.org">Staff Directory</a>
+                <a href="https://loc.sh/discord">Discord Server</a>
                 <br>
                 COMM REPORT DATA - BANKOVIA FIN SVCS
             </p>
@@ -228,5 +195,36 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        function visible(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+        function invisible(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        // const axios = require('axios').default;
+        document.getElementById('enterB').onclick = async function sendPostRequest() {
+            try {
+                const pin = document.getElementById('pin').value;
+                const userID = document.getElementById('userID').value;
+                if (pin < 4) return visible('invalidPIN');
+                if (!userID) return visible('invalidPIN');
+                const newPost = {
+                    headers: { Authorization: '7d3cd7cf42fd24e53d55dd185c5057b2b296aead' },
+                    data: {
+                        userID: userID,
+                        pin: pin,
+                    },
+                };
+                const resp = await axios.post('https://comm.libraryofcode.org/report/v2/soft', newPost);
+                invisible('pre');
+                visible('data-pre');
+                console.log(resp.data);
+            } 
+            catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
 </body>
 </html>
