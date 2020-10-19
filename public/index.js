@@ -1,30 +1,32 @@
-const axios = require('axios');
-const chalk = require('chalk');
-const config = require('../config.json');
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 // PIN Functions
 function visible(id) {
-    document.getElementById(id).style.display = "block";
+	document.getElementById(id).style.display = 'block';
 }
 function invisible(id) {
-    document.getElementById(id).style.display = "none";
+	document.getElementById(id).style.display = 'none';
 }
 function RequestData() {
-    try {
-        const pin = document.getElementById('pin').value;
-        if (pin < 4) return visible('invalidPIN');
-        invisible('pre');
-        const { data } = await axios({
-            method: 'post',
-            url: 'https://comm.libraryofcode.org/report/v2/soft',
-            headers: { Authorization: config.vendor },
-            data: {
-              userID,
-              pin: pin,
-            },
-        });
-        visible('data-pre');
-        console.log(data);
-    } catch (error) {
-        console.log(error);
-    }
+	const axios = require('axios');
+	const config = require('../config.json');
+	try {
+		const pin = document.getElementById('pin').value;
+		if (pin < 4) return visible('invalidPIN');
+		invisible('pre');
+		const { data } = axios({
+			method: 'post',
+			url: 'https://comm.libraryofcode.org/report/v2/soft',
+			headers: { Authorization: config.vendor },
+			data: {
+				userID,
+				pin: pin,
+			},
+		});
+		visible('data-pre');
+		console.log(data);
+	}
+	catch (error) {
+		console.log(error);
+	}
 }
