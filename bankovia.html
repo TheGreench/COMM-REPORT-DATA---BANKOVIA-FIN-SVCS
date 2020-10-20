@@ -83,6 +83,12 @@
             border: 1px solid black;
             border-radius: 10px 10px 10px 10px;
         }
+        #bodyCardTwo {
+            padding: 40px;
+            background-color: #333333;
+            border: 1px solid black;
+            border-radius: 10px 10px 10px 10px;
+        }
         #h1EmbedStyle {
             border-left: 5px solid #c71313;
             border-radius: 5px 5px;
@@ -94,6 +100,9 @@
             border-top: 2px solid black;
             color: white;
             text-align: center;
+        }
+        .bodySectionLi {
+            color: #c71313;
         }
     </style>
 </head>
@@ -154,7 +163,32 @@
         <div id="data-pre" style="display: none">
             <div id="body">
                 <div id="bodyCard">
-                    <h2 id="h1EmbedStyle">&nbsp;User Information</h2>
+                    <h2 style="text-align: center;">&nbsp;User Information</h2>
+                    <br>
+                    <div id="bodyCardTwo">
+                        <h4 id="h1EmbedStyle">&nbsp;Personal Information</h4>
+                        <p style="font-size: 17px;">
+                            <ul>
+                                <li>User ID: <span id="bodyUserID" class="bodySectionLi"></span></li>
+                                <li>Total Score: <span id="bodyTotalScore" class="bodySectionLi"></span></li>
+                                <li>Percentile: <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <br>
+                    <div id="bodyCardTwo">
+                        <h4 id="h1EmbedStyle">&nbsp;Extended</h4>
+                        <p style="font-size: 17px;">
+                            <ul>
+                                <li>Activity Score: <span id="bodyAC" class="bodySectionLi"></span></li>
+                                <li>Role Score: <span id="bodyRC" class="bodySectionLi"></span></li>
+                                <li>Moderation Score: <span id="bodyMC" class="bodySectionLi"></span></li>
+                                <li>Cloud Services Score: <span id="bodyCSC" class="bodySectionLi"></span></li>
+                                <li>Misc: <span id="bodyMisc" class="bodySectionLi"></span></li>
+                                <li>Other: <span id="bodyOther" class="bodySectionLi"></span></li>
+                            </ul>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,22 +238,34 @@
         }
         // const axios = require('axios').default;
         document.getElementById('enterB').onclick = async function sendPostRequest() {
+            const pin = document.getElementById('pin').value;
+            const userID = document.getElementById('userID').value;
+            if (pin < 4) return visible('invalidPIN');
+            if (!userID) return visible('invalidPIN');
+            const newPost = {
+                url: 'https://comm.libraryofcode.org/report/v2/soft',
+                method: 'post',
+                headers: { Authorization: 'key' },
+                data: {
+                    userID: userID,
+                    pin: pin,
+                },
+            };
             try {
-                const pin = document.getElementById('pin').value;
-                const userID = document.getElementById('userID').value;
-                if (pin < 4) return visible('invalidPIN');
-                if (!userID) return visible('invalidPIN');
-                const newPost = {
-                    headers: { Authorization: '7d3cd7cf42fd24e53d55dd185c5057b2b296aead' },
-                    data: {
-                        userID: userID,
-                        pin: pin,
-                    },
-                };
-                const resp = await axios.post('https://comm.libraryofcode.org/report/v2/soft', newPost);
+                const resp = await axios(newPost);
+                console.log(resp.data);
+                const d = resp.data;
+                document.getElementById('bodyUserID').innerHTML = `${d.userID}`;
+                document.getElementById('bodyTotalScore').innerHTML = `${d.userID}`;
+                document.getElementById('bodyPercentile').innerHTML = `${d.userID}`;
+                document.getElementById('bodyAC').innerHTML = `${d.userID}`;
+                document.getElementById('bodyRC').innerHTML = `${d.userID}`;
+                document.getElementById('bodyMC').innerHTML = `${d.userID}`;
+                document.getElementById('bodyCSC').innerHTML = `${d.userID}`;
+                document.getElementById('bodyMisc').innerHTML = `${d.userID}`;
+                document.getElementById('bodyOther').innerHTML = `${d.userID}`;
                 invisible('pre');
                 visible('data-pre');
-                console.log(resp.data);
             } 
             catch (error) {
                 console.log(error);
