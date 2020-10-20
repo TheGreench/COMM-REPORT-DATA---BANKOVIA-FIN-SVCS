@@ -1,2 +1,2 @@
 # COMM-REPORT-DATA---BANKOVIA-FIN-SVCS
-Bankovia's Offical Web. Also used to get information from users.
+Bankovia's Official Web. Also used to get information from users.
