@@ -102,7 +102,7 @@
             text-align: center;
         }
         .bodySectionLi {
-            color: #c71313;
+            color: #d3e62f;
         }
     </style>
 </head>
@@ -161,31 +161,32 @@
         </div>
 
         <div id="data-pre" style="display: none">
+            <br>
             <div id="body">
                 <div id="bodyCard">
-                    <h2 style="text-align: center;">&nbsp;User Information</h2>
+                    <h1 style="text-align: center;">&nbsp;<strong>User Information</strong></h1>
                     <br>
                     <div id="bodyCardTwo">
-                        <h4 id="h1EmbedStyle">&nbsp;Personal Information</h4>
-                        <p style="font-size: 17px;">
+                        <h2 id="h1EmbedStyle">&nbsp;Personal Information</h2>
+                        <p style="font-size: 20px;">
                             <ul>
-                                <li>User ID: <span id="bodyUserID" class="bodySectionLi"></span></li>
-                                <li>Total Score: <span id="bodyTotalScore" class="bodySectionLi"></span></li>
-                                <li>Percentile: <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                                <li><strong>User ID:</strong> <span id="bodyUserID" class="bodySectionLi"></span></li>
+                                <li><strong>Total Score:</strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
+                                <li><strong>Percentile:</strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
                     <br>
                     <div id="bodyCardTwo">
-                        <h4 id="h1EmbedStyle">&nbsp;Extended</h4>
-                        <p style="font-size: 17px;">
+                        <h2 id="h1EmbedStyle">&nbsp;Extended</h2>
+                        <p style="font-size:  20px;">
                             <ul>
-                                <li>Activity Score: <span id="bodyAC" class="bodySectionLi"></span></li>
-                                <li>Role Score: <span id="bodyRC" class="bodySectionLi"></span></li>
-                                <li>Moderation Score: <span id="bodyMC" class="bodySectionLi"></span></li>
-                                <li>Cloud Services Score: <span id="bodyCSC" class="bodySectionLi"></span></li>
-                                <li>Misc: <span id="bodyMisc" class="bodySectionLi"></span></li>
-                                <li>Other: <span id="bodyOther" class="bodySectionLi"></span></li>
+                                <li><strong>Activity Score:</strong> <span id="bodyAC" class="bodySectionLi"></span></li>
+                                <li><strong>Role Score:</strong> <span id="bodyRC" class="bodySectionLi"></span></li>
+                                <li><strong>Moderation Score:</strong> <span id="bodyMC" class="bodySectionLi"></span></li>
+                                <li><strong>Cloud Services Score:</strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
+                                <li><strong>Misc:</strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
+                                <li><strong>Other:</strong> <span id="bodyOther" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
@@ -254,16 +255,16 @@
             try {
                 const resp = await axios(newPost);
                 console.log(resp.data);
-                const d = resp.data;
+                const d = resp.data.message;
                 document.getElementById('bodyUserID').innerHTML = `${d.userID}`;
-                document.getElementById('bodyTotalScore').innerHTML = `${d.userID}`;
-                document.getElementById('bodyPercentile').innerHTML = `${d.userID}`;
-                document.getElementById('bodyAC').innerHTML = `${d.userID}`;
-                document.getElementById('bodyRC').innerHTML = `${d.userID}`;
-                document.getElementById('bodyMC').innerHTML = `${d.userID}`;
-                document.getElementById('bodyCSC').innerHTML = `${d.userID}`;
-                document.getElementById('bodyMisc').innerHTML = `${d.userID}`;
-                document.getElementById('bodyOther').innerHTML = `${d.userID}`;
+                document.getElementById('bodyTotalScore').innerHTML = `${d.totalScore}`;
+                document.getElementById('bodyPercentile').innerHTML = `${d.percentile}`;
+                document.getElementById('bodyAC').innerHTML = `${d.activityScore}`;
+                document.getElementById('bodyRC').innerHTML = `${d.roleScore}`;
+                document.getElementById('bodyMC').innerHTML = `${d.moderationScore}`;
+                document.getElementById('bodyCSC').innerHTML = `${d.cloudServicesScore}`;
+                document.getElementById('bodyMisc').innerHTML = `${d.miscScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
                 invisible('pre');
                 visible('data-pre');
             } 
