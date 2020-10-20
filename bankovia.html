@@ -1,7 +1,6 @@
 <!--
   COMM REPORT DATA - BANKOVIA FIN SVCS
   Written by: TheGreench, AS, ENG-I <greench@staff.libraryofcode.org>
-    Last Update: Saturday, October 17, 2020
     COPYRIGHT 2020
 -->
 
@@ -15,7 +14,6 @@
     <!-- Metas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Bankovia is the economy bot developed by the Library of Code Community.">
     <meta name="keywords" content="LOC, Discord, Jira, Library of Code, Bankovia">
     <!-- <meta name="url" content="When We Get It"> -->
@@ -160,33 +158,61 @@
             </div>
         </div>
 
+        <!-- User Information -->
         <div id="data-pre" style="display: none">
             <br>
             <div id="body">
                 <div id="bodyCard">
                     <h1 style="text-align: center;">&nbsp;<strong>User Information</strong></h1>
                     <br>
+                    <!-- Personal Info Box -->
                     <div id="bodyCardTwo">
                         <h2 id="h1EmbedStyle">&nbsp;Personal Information</h2>
                         <p style="font-size: 20px;">
                             <ul>
                                 <li><strong>User ID:</strong> <span id="bodyUserID" class="bodySectionLi"></span></li>
-                                <li><strong>Total Score:</strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
-                                <li><strong>Percentile:</strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                                <li><strong>Total Score: 200 to 800<br></strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
+                                <li><strong>Percentile: 0 to 100th<br></strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
                     <br>
+                    <!-- Extra Score Info Box -->
                     <div id="bodyCardTwo">
                         <h2 id="h1EmbedStyle">&nbsp;Extended</h2>
                         <p style="font-size:  20px;">
                             <ul>
-                                <li><strong>Activity Score:</strong> <span id="bodyAC" class="bodySectionLi"></span></li>
-                                <li><strong>Role Score:</strong> <span id="bodyRC" class="bodySectionLi"></span></li>
-                                <li><strong>Moderation Score:</strong> <span id="bodyMC" class="bodySectionLi"></span></li>
-                                <li><strong>Cloud Services Score:</strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
-                                <li><strong>Misc:</strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
-                                <li><strong>Other:</strong> <span id="bodyOther" class="bodySectionLi"></span></li>
+                                <li><strong>Activity Score: 10 to 98<br></strong> <span id="bodyAC" class="bodySectionLi"></span></li>
+                                <li><strong>Role Score: 1 to N/A<br></strong> <span id="bodyRC" class="bodySectionLi"></span></li>
+                                <li><strong>Moderation Score: N/A to 2<br></strong> <span id="bodyMC" class="bodySectionLi"></span></li>
+                                <li><strong>Cloud Services Score: N/A to 10+<br></strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
+                                <li><strong>Misc:<br></strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
+                                <li><strong>Other:<br></strong> <span id="bodyOther" class="bodySectionLi"></span></li>
+                            </ul>
+                        </p>
+                    </div>
+                    <br>
+                    <!-- Bankovia User Info Box -->
+                    <div id="bodyCardTwo">
+                        <h2 id="h1EmbedStyle">&nbsp;Bankovia User Information</h2>
+                        <p style="font-size:  20px;">
+                            <ul>
+                                <li><strong>Account ID: </strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <li><strong>Account Type: [Personal/Business]<br></strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <br>
+                                <li><strong>Reputation Points: </strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <li><strong>Stolen From: (Rubies) <br></strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <li><strong>Stolen From Others: (Rubies) <br></strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <br>
+                                <li>
+                                    <strong>Currencies:</strong>
+                                    <ul>
+                                        <li>Gem Fragments: <span class="bodySectionLi" id="">SOON</span></li>
+                                        <li>Rubies: <span class="bodySectionLi" id="">SOON</span></li>
+                                        <li>Elixirs: <span class="bodySectionLi" id="">SOON</span></li>
+                                        <li>Crystals: <span class="bodySectionLi" id="">SOON</span></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </p>
                     </div>
@@ -197,20 +223,60 @@
         <!-- Invalid PIN -->
         <div class="modal" tabindex="-1" role="dialog" style="display: none" id="invalidPIN">
             <div class="modal-dialog" role="document">
-              <div class="modal-content">
+                <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title">ERROR: Access Denied</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('invalidPIN') && visible('pre')">
+                    <h5 class="modal-title">ERROR: Access Denied</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('invalidPIN') && visible('pre')">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                    </button>
                 </div>
                 <div class="modal-body">
-                  <p>The Personal Indentification Number (PIN) you provided is invalid.</p>
+                    <p>The Personal Indentification Number (PIN) you provided is invalid.</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('invalidPIN') && visible('pre')" id="closeBtn">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('invalidPIN') && visible('pre')" id="closeBtn">Close</button>
                 </div>
-              </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invalid Key -->
+        <div class="modal" tabindex="-1" role="dialog" style="display: none" id="invalidKey">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ERROR: Access Denied</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('invalidKey') && visible('pre')">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>You must supply an Offer Code to continue.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('invalidKey') && visible('pre')" id="closeBtn">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 500 Service Modal -->
+        <div class="modal" tabindex="-1" role="dialog" style="display: none" id="serviceE">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ERROR: Server Error</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('serviceE') && visible('pre')">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>The service is currently experiencing issues processing, please try again later.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('serviceE') && visible('pre')" id="closeBtn">Close</button>
+                </div>
+                </div>
             </div>
         </div>
 
@@ -231,6 +297,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
+        $(document).ready(function() {
+            $('.btn').on('click', function() {
+              var $this = $(this);
+              var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
+              if ($(this).html() !== loadingText) {
+                $this.data('original-text', $(this).html());
+                $this.html(loadingText);
+              }
+              setTimeout(function() {
+                $this.html($this.data('original-text'));
+              }, 2000);
+            });
+          })
         function visible(id) {
             document.getElementById(id).style.display = 'block';
         }
@@ -244,17 +323,18 @@
             if (pin < 4) return visible('invalidPIN');
             if (!userID) return visible('invalidPIN');
             const newPost = {
-                url: 'https://comm.libraryofcode.org/report/v2/soft',
+                url: 'https://bankovia-api.cloud.libraryofcode.org/soft-pull',
                 method: 'post',
-                headers: { Authorization: 'key' },
-                data: {
-                    userID: userID,
-                    pin: pin,
+                headers: {
+                    Authorization: pin,
+                    'Content-Type': 'application/json',
                 },
+                body: {
+                    user: userID,
+                }
             };
             try {
                 const resp = await axios(newPost);
-                console.log(resp.data);
                 const d = resp.data.message;
                 document.getElementById('bodyUserID').innerHTML = `${d.userID}`;
                 document.getElementById('bodyTotalScore').innerHTML = `${d.totalScore}`;
