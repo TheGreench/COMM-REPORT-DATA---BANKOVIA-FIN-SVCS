@@ -143,7 +143,7 @@
                     <h4 id="h1EmbedStyle">&nbsp;Enter your Personal Data</h4>
                     <p style="font-size: 17px;">You can get your PIN by running <strong>?score</strong> in your DMs with the Library of Code sp-us bot. You only need the last four digits.</p>
                     <div class="input-group mb-3">
-                        <input id="pin" type="text" class="form-control col-md-4" placeholder="XXXX" aria-label="pin" aria-describedby="basic-addon3" maxlength="4">
+                        <input id="pin" type="text" class="form-control col-md-3" placeholder="XXXX" aria-label="pin" aria-describedby="basic-addon3" maxlength="4">
                         <!-- - -->
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon">-</span>
@@ -151,9 +151,12 @@
                         <input id="userID" type="text" class="form-control col-md-6" placeholder="Your User ID" aria-label="pin" aria-describedby="basic-addon3">
                         <!-- Submit Personal Pin -->
                         <div class="input-group-append">
-                            <button class="btn btn-dark" type="submit" id="enterB">Enter</button>
+                            <div class="spinner-grow text-secondary" role="status">
+                                <button class="btn btn-dark" type="submit" id="enterB">Enter</button>
+                            </div>
                         </div>
                     </div>
+                    <small id="emailHelp" class="form-text text-muted" style="color: #ffffff !important;">Don't Share the PIN with anyone.</small>
                 </div>
             </div>
         </div>
@@ -170,9 +173,10 @@
                         <h2 id="h1EmbedStyle">&nbsp;Personal Information</h2>
                         <p style="font-size: 20px;">
                             <ul>
+                                <li><strong>User:</strong> <span id="bodyUserUsername" class="bodySectionLi"></span>#<span id="bodyUserTag" class="bodySectionLi"></span></li>
                                 <li><strong>User ID:</strong> <span id="bodyUserID" class="bodySectionLi"></span></li>
-                                <li><strong>Total Score: 200 to 800<br></strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
-                                <li><strong>Percentile: 0 to 100th<br></strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                                <li><strong>Joined LOC At:</strong> <span id="bodyUserJoinedS" class="bodySectionLi" type="date"></span></li>
+                                <li><strong>Flags: </strong> <span id="bodyUserFlags" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
@@ -182,12 +186,14 @@
                         <h2 id="h1EmbedStyle">&nbsp;Extended</h2>
                         <p style="font-size:  20px;">
                             <ul>
-                                <li><strong>Activity Score: 10 to 98<br></strong> <span id="bodyAC" class="bodySectionLi"></span></li>
-                                <li><strong>Role Score: 1 to N/A<br></strong> <span id="bodyRC" class="bodySectionLi"></span></li>
-                                <li><strong>Moderation Score: N/A to 2<br></strong> <span id="bodyMC" class="bodySectionLi"></span></li>
-                                <li><strong>Cloud Services Score: N/A to 10+<br></strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
-                                <li><strong>Misc:<br></strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
-                                <li><strong>Other:<br></strong> <span id="bodyOther" class="bodySectionLi"></span></li>
+                                <li><strong>Total Score (200 to 800): </strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
+                                <li><strong>Percentile (0 to 100th): </strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                                <li><strong>Activity Score (10 to 98): </strong> <span id="bodyAC" class="bodySectionLi"></span></li>
+                                <li><strong>Role Score (1 to N/A): </strong> <span id="bodyRC" class="bodySectionLi"></span></li>
+                                <li><strong>Moderation Score (N/A to 2): </strong> <span id="bodyMC" class="bodySectionLi"></span></li>
+                                <li><strong>Cloud Services Score (N/A to 10+): </strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
+                                <li><strong>Misc:</strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
+                                <li><strong>Other:</strong> <span id="bodyOther" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
@@ -197,20 +203,20 @@
                         <h2 id="h1EmbedStyle">&nbsp;Bankovia User Information</h2>
                         <p style="font-size:  20px;">
                             <ul>
-                                <li><strong>Account ID: </strong> <span class="bodySectionLi" id="">SOON</span></li>
-                                <li><strong>Account Type: [Personal/Business]<br></strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <li><strong>Account ID: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Account Type [Personal/Business]: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                 <br>
-                                <li><strong>Reputation Points: </strong> <span class="bodySectionLi" id="">SOON</span></li>
-                                <li><strong>Stolen From: (Rubies) <br></strong> <span class="bodySectionLi" id="">SOON</span></li>
-                                <li><strong>Stolen From Others: (Rubies) <br></strong> <span class="bodySectionLi" id="">SOON</span></li>
+                                <li><strong>Reputation Points: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Stolen From (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Stolen From Others (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                 <br>
                                 <li>
                                     <strong>Currencies:</strong>
                                     <ul>
-                                        <li>Gem Fragments: <span class="bodySectionLi" id="">SOON</span></li>
-                                        <li>Rubies: <span class="bodySectionLi" id="">SOON</span></li>
-                                        <li>Elixirs: <span class="bodySectionLi" id="">SOON</span></li>
-                                        <li>Crystals: <span class="bodySectionLi" id="">SOON</span></li>
+                                        <li>Gem Fragments: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Rubies: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Elixirs: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Crystals: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -271,7 +277,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>The service is currently experiencing issues processing, please try again later.</p>
+                    <p>The service is currently experiencing issues while processing, please try again later.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('serviceE') && visible('pre')" id="closeBtn">Close</button>
@@ -300,7 +306,7 @@
         $(document).ready(function() {
             $('.btn').on('click', function() {
               var $this = $(this);
-              var loadingText = '<i class="fa fa-circle-o-notch fa-spin"></i> Loading...';
+              var loadingText = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
               if ($(this).html() !== loadingText) {
                 $this.data('original-text', $(this).html());
                 $this.html(loadingText);
@@ -346,11 +352,22 @@
                 document.getElementById('bodyCSC').innerHTML = `${d.cloudServicesScore}`;
                 document.getElementById('bodyMisc').innerHTML = `${d.miscScore}`;
                 document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                // Bankovia
+                /* document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
+                document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;*/
                 invisible('pre');
                 visible('data-pre');
             } 
             catch (error) {
                 console.log(error);
+                visible('serviceE');
             }
         }
     </script>
