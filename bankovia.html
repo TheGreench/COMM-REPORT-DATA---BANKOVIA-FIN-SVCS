@@ -29,6 +29,9 @@
         transition-duration: .6s;
         transition-timing-function: ease;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         #nav {
             padding: 20px;
             font-size: 18px;
@@ -36,6 +39,15 @@
             background-color: #333333;
             font-weight: bold;
             border-bottom: 2px solid black;
+        }
+        #nav2 {
+            padding: 20px;
+            font-size: 15px;
+            text-decoration: none;
+            background-color: #333333;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            border-radius: 10px 10px 0px 0px;
         }
         #footer {
             border-top: 2px solid black;
@@ -61,6 +73,15 @@
             color: #c71313;
             border-radius: 10px 10px 10px 10px;
         }
+        #nav2 ul li a {
+            color: white;
+            border-radius: 10px 10px 10px 10px;
+        }
+        #nav2 ul li a:hover {
+            background-color: white;
+            color: #c71313;
+            border-radius: 10px 10px 10px 10px;
+        }
         #active {
             background-color: white;
             color: #c71313 !important;
@@ -80,6 +101,7 @@
             background-color: #505050;
             border: 1px solid black;
             border-radius: 10px 10px 10px 10px;
+            z-index:0;
         }
         #bodyCardTwo {
             padding: 40px;
@@ -168,7 +190,24 @@
                 <div id="bodyCard">
                     <h1 style="text-align: center;">&nbsp;<strong>User Information</strong></h1>
                     <br>
+                    <nav id="nav2" class="smoothB">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item smoothB">
+                              <a class="nav-link"href="#personal">Personal Info</a>
+                            </li>
+                            &nbsp;
+                            <li class="nav-item smoothB">
+                              <a class="nav-link" href="#extended">Extended Info</a>
+                            </li>
+                            &nbsp;
+                            <li class="nav-item smoothB">
+                              <a class="nav-link" href="#bankovia">Bankovia User Info</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <br>
                     <!-- Personal Info Box -->
+                    <span id="personal" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
                         <h2 id="h1EmbedStyle">&nbsp;Personal Information</h2>
                         <p style="font-size: 20px;">
@@ -182,6 +221,7 @@
                     </div>
                     <br>
                     <!-- Extra Score Info Box -->
+                    <span id="extended" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
                         <h2 id="h1EmbedStyle">&nbsp;Extended</h2>
                         <p style="font-size:  20px;">
@@ -199,6 +239,7 @@
                     </div>
                     <br>
                     <!-- Bankovia User Info Box -->
+                    <span id="bankovia" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
                         <h2 id="h1EmbedStyle">&nbsp;Bankovia User Information</h2>
                         <p style="font-size:  20px;">
@@ -289,6 +330,7 @@
         <br><br>
 
         <!-- Footer -->
+        <a href="/loc-score-bankovia#nav" style="text-align: right;font-size: 14px;color: white;" class="smoothB">Go to Top</a>
         <div id="footer">
             <p>
                 <a href="https://loc.sh/discord">Discord Server</a>
@@ -303,6 +345,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
+        // Button change to Loading on click
         $(document).ready(function() {
             $('.btn').on('click', function() {
               var $this = $(this);
@@ -316,18 +359,23 @@
               }, 2000);
             });
           })
-        function visible(id) {
+        // Changing Display = Block
+          function visible(id) {
             document.getElementById(id).style.display = 'block';
         }
+        // Changing Display = None
         function invisible(id) {
             document.getElementById(id).style.display = 'none';
         }
-        // const axios = require('axios').default;
+        // User Information
         document.getElementById('enterB').onclick = async function sendPostRequest() {
+            // Getting values from input
             const pin = document.getElementById('pin').value;
             const userID = document.getElementById('userID').value;
+            // Input Errors
             if (pin < 4) return visible('invalidPIN');
             if (!userID) return visible('invalidPIN');
+            // Generating the post
             const newPost = {
                 method: 'post',
                 headers: {
@@ -339,13 +387,28 @@
                 })
             };
             try {
-                // const resp = await axios(newPost);
+                // Fetching the Data
                 const resp = await (await fetch('https://bankovia-api.cloud.libraryofcode.org/soft-pull', newPost)).json();
-                const d = resp.message;
-                const date = d.memberInformation.joinedServerAt;
+                // Variables
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-                // User Flags Array
+                const d = resp.message;
+                const dMemberInfo = d.memberInformation;
+                const date = dMemberInfo.joinedServerAt;
+                const dateLast = new Date(date).toLocaleDateString('en-US', options);
+                const username = dMemberInfo.username;
+                const tag = dMemberInfo.discriminator;
+                const userID = d.userID;
+                const totalScore = d.totalScore;
+                const percentile = d.percentile;
+                const activityScore = d.activityScore;
+                const roleScore = d.roleScore;
+                const moderationScore = d.moderationScore;
+                const cloudScore = d.cloudServicesScore;
+                const miscScore = d.miscScore;
+                const otherScore = d.otherScore;
                 const flags = d.memberInformation.flags;
+                const pinNotAuth = 'PIN needs to be validated by a developer.';
+                // User Flags Array
                 const arrayF = [];
                 if (flags.includes('DISCORD_EMPLOYEE')) {arrayF.push('Discord Employee')};
                 if (flags.includes('PARTNERED_SERVER_OWNER')) {arrayF.push('Partnered Server Owner')};
@@ -358,19 +421,19 @@
                 if (flags.includes('BUG_HUNTER_2')) {arrayF.push('Bug Hunter')};
                 if (flags.includes('EARLY_VERIFIED_BOT_DEVELOPER')) {arrayF.push('Early Verified Bot Developer')};
                 // Loc Score
-                document.getElementById('bodyUserUsername').innerHTML = `${d.memberInformation.username === 'undefined' ? 'PIN needs to be validated by a developer.' : d.memberInformation.username}`
-                document.getElementById('bodyUserTag').innerHTML = `${d.memberInformation.discriminator === 'undefined' ? 'PIN needs to be validated by a developer.' : d.memberInformation.discriminator}`
+                document.getElementById('bodyUserUsername').innerHTML = `${username === 'undefined' ? pinNotAuth : username}`
+                document.getElementById('bodyUserTag').innerHTML = `${tag === 'undefined' ? pinNotAuth : tag}`
                 document.getElementById('bodyUserFlags').innerHTML = `${!arrayF.length ? 'N/A' : arrayF}`
-                document.getElementById('bodyUserJoinedS').innerHTML = `${new Date(date).toLocaleDateString('en-US', options)}`
-                document.getElementById('bodyUserID').innerHTML = `${d.userID === 'undefined' ? 'PIN needs to be validated by a developer.' : d.userID}`;
-                document.getElementById('bodyTotalScore').innerHTML = `${d.totalScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.totalScore}`;
-                document.getElementById('bodyPercentile').innerHTML = `${d.percentile === 'undefined' ? 'PIN needs to be validated by a developer.' : d.percentile}`;
-                document.getElementById('bodyAC').innerHTML = `${d.activityScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.activityScore}`;
-                document.getElementById('bodyRC').innerHTML = `${d.roleScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.roleScore}`;
-                document.getElementById('bodyMC').innerHTML = `${d.moderationScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.moderationScore}`;
-                document.getElementById('bodyCSC').innerHTML = `${d.cloudServicesScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.cloudServicesScore}`;
-                document.getElementById('bodyMisc').innerHTML = `${d.miscScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.miscScore}`;
-                document.getElementById('bodyOther').innerHTML = `${d.otherScore === 'undefined' ? 'PIN needs to be validated by a developer.' : d.otherScore}`;
+                document.getElementById('bodyUserJoinedS').innerHTML = `${dateLast === 'undefined' ? pinNotAuth : dateLast}`
+                document.getElementById('bodyUserID').innerHTML = `${userID === 'undefined' ? pinNotAuth : userID}`;
+                document.getElementById('bodyTotalScore').innerHTML = `${totalScore === 'undefined' ? pinNotAuth : totalScore}`;
+                document.getElementById('bodyPercentile').innerHTML = `${percentile === 'undefined' ? pinNotAuth : percentile}`;
+                document.getElementById('bodyAC').innerHTML = `${activityScore === 'undefined' ? pinNotAuth : activityScore}`;
+                document.getElementById('bodyRC').innerHTML = `${roleScore === 'undefined' ? pinNotAuth : roleScore}`;
+                document.getElementById('bodyMC').innerHTML = `${moderationScore === 'undefined' ? pinNotAuth : moderationScore}`;
+                document.getElementById('bodyCSC').innerHTML = `${cloudScore === 'undefined' ? pinNotAuth : cloudScore}`;
+                document.getElementById('bodyMisc').innerHTML = `${miscScore === 'undefined' ? pinNotAuth : miscScore}`;
+                document.getElementById('bodyOther').innerHTML = `${otherScore === 'undefined' ? pinNotAuth : otherScore}`;
                 // Bankovia
                 /* document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
                 document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
@@ -381,6 +444,7 @@
                 document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
                 document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;
                 document.getElementById('bodyOther').innerHTML = `${d.otherScore}`;*/
+                // Changing View
                 invisible('pre');
                 visible('data-pre');
             } 
