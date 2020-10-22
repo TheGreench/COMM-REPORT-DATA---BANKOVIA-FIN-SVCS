@@ -320,22 +320,23 @@
         document.getElementById('enterB').onclick = async function sendPostRequest() {
             const pin = document.getElementById('pin').value;
             const userID = document.getElementById('userID').value;
+
             if (pin < 4) return visible('invalidPIN');
             if (!userID) return visible('invalidPIN');
             const newPost = {
-                url: 'https://bankovia-api.cloud.libraryofcode.org/soft-pull',
-                method: 'post',
+                method: 'POST',
                 headers: {
                     Authorization: pin,
                     'Content-Type': 'application/json',
                 },
-                body: {
-                    user: userID,
-                }
+                body: JSON.stringify({
+                    userID: userID,
+                })
             };
             try {
-                const resp = await axios(newPost);
-                const d = resp.data.message;
+                const resp = await (await fetch('https://bankovia-api.cloud.libraryofcode.org/soft-pull', newPost)).json();
+                const d = resp.message;
+
                 document.getElementById('bodyUserID').innerHTML = `${d.userID}`;
                 document.getElementById('bodyTotalScore').innerHTML = `${d.totalScore}`;
                 document.getElementById('bodyPercentile').innerHTML = `${d.percentile}`;
