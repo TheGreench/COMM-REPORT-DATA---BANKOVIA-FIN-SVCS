@@ -20,4 +20,4 @@ router.get('/loc-score-bankovia',function(req,res){
 app.use('/', router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.listen(port);
-console.log('[#] LOG ' + chalk.green(`COMM REPORT DATA - BANKOVIA FIN SVCS is running on port: ${chalk.yellow(port)}`));
+console.log('[LOG] ' + chalk.green(`COMM REPORT DATA - BANKOVIA FIN SVCS is running on port: ${chalk.yellow(port)}`));
