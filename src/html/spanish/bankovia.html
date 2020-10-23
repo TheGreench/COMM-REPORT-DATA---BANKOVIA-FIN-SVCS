@@ -141,7 +141,7 @@
             <hr id="hr-brand">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                  <a class="nav-link"href="/">Principal</a>
+                  <a class="nav-link"href="/es/">Principal</a>
                 </li>
                 &nbsp;
                 <li class="nav-item">
@@ -149,12 +149,16 @@
                 </li>
                 &nbsp;
                 <li class="nav-item">
-                  <a class="nav-link" id="active" href="/loc-score-bankovia">Login - Perfil</a>
+                  <a class="nav-link" id="active" href="/es/loc-score-bankovia">Login - Perfil</a>
                 </li>
                 &nbsp;
                 <li class="nav-item">
                     <a class="nav-link" href="//libraryofcode.org">Pagina Principal</a>
-                  </li>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="/loc-score-bankovia">Version en Ingles</a>
+                </li>
             </ul>
         </nav>
 
@@ -162,15 +166,15 @@
         <div id="pre">
             <div id="body">
                 <div id="bodyCard">
-                    <h4 id="h1EmbedStyle">&nbsp;Enter your Personal Data</h4>
-                    <p style="font-size: 17px;">You can get your PIN by running <strong>?score</strong> in your DMs with the Library of Code sp-us bot. You only need the last four digits.</p>
+                    <h4 id="h1EmbedStyle">&nbsp;Ingrese sus datos personales</h4>
+                    <p style="font-size: 17px;">Puede obtener su PIN ejecutando <strong>?score</strong> en sus DM con el bot sp-us de Library of Code. Solo necesitas los últimos cuatro dígitos.</p>
                     <div class="input-group mb-3">
                         <input id="pin" type="text" class="form-control col-md-3" placeholder="XXXX" aria-label="pin" aria-describedby="basic-addon3" maxlength="4">
                         <!-- - -->
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon">-</span>
                         </div>
-                        <input id="userID" type="text" class="form-control col-md-6" placeholder="Your User ID" aria-label="pin" aria-describedby="basic-addon3">
+                        <input id="userID" type="text" class="form-control col-md-6" placeholder="Su identificación de usuario" aria-label="pin" aria-describedby="basic-addon3">
                         <!-- Submit Personal Pin -->
                         <div class="input-group-append">
                             <div class="spinner-grow text-secondary" role="status">
@@ -178,7 +182,7 @@
                             </div>
                         </div>
                     </div>
-                    <small id="emailHelp" class="form-text text-muted" style="color: #ffffff !important;">Don't Share the PIN with anyone.</small>
+                    <small id="emailHelp" class="form-text text-muted" style="color: #ffffff !important;">No comparta el PIN con nadie.</small>
                 </div>
             </div>
         </div>
@@ -188,20 +192,20 @@
             <br>
             <div id="body">
                 <div id="bodyCard">
-                    <h1 style="text-align: center;">&nbsp;<strong>User Information</strong></h1>
+                    <h1 style="text-align: center;">&nbsp;<strong>Informacion del Usuario</strong></h1>
                     <br>
                     <nav id="nav2" class="smoothB">
                         <ul class="nav justify-content-center">
                             <li class="nav-item smoothB">
-                              <a class="nav-link"href="#personal">Personal Info</a>
+                              <a class="nav-link"href="#personal">Información personal</a>
                             </li>
                             &nbsp;
                             <li class="nav-item smoothB">
-                              <a class="nav-link" href="#extended">Extended Info</a>
+                              <a class="nav-link" href="#extended">Información ampliada</a>
                             </li>
                             &nbsp;
                             <li class="nav-item smoothB">
-                              <a class="nav-link" href="#bankovia">Bankovia User Info</a>
+                              <a class="nav-link" href="#bankovia">Información de usuario de Bankovia</a>
                             </li>
                         </ul>
                     </nav>
@@ -209,12 +213,12 @@
                     <!-- Personal Info Box -->
                     <span id="personal" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
-                        <h2 id="h1EmbedStyle">&nbsp;Personal Information</h2>
+                        <h2 id="h1EmbedStyle">&nbsp;Informacion personal</h2>
                         <p style="font-size: 20px;">
                             <ul>
-                                <li><strong>User:</strong> <span id="bodyUserUsername" class="bodySectionLi"></span>#<span id="bodyUserTag" class="bodySectionLi"></span></li>
-                                <li><strong>User ID:</strong> <span id="bodyUserID" class="bodySectionLi"></span></li>
-                                <li><strong>Joined LOC At:</strong> <span id="bodyUserJoinedS" class="bodySectionLi" type="date"></span></li>
+                                <li><strong>Usuario:</strong> <span id="bodyUserUsername" class="bodySectionLi"></span>#<span id="bodyUserTag" class="bodySectionLi"></span></li>
+                                <li><strong>ID del Usuario:</strong> <span id="bodyUserID" class="bodySectionLi"></span></li>
+                                <li><strong>Se Unio a LOC el:</strong> <span id="bodyUserJoinedS" class="bodySectionLi" type="date"></span></li>
                                 <li><strong>Flags: </strong> <span id="bodyUserFlags" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
@@ -223,17 +227,17 @@
                     <!-- Extra Score Info Box -->
                     <span id="extended" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
-                        <h2 id="h1EmbedStyle">&nbsp;Extended</h2>
+                        <h2 id="h1EmbedStyle">&nbsp;Extendido</h2>
                         <p style="font-size:  20px;">
                             <ul>
-                                <li><strong>Total Score (200 to 800): </strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
-                                <li><strong>Percentile (0 to 100th): </strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
-                                <li><strong>Activity Score (10 to 98): </strong> <span id="bodyAC" class="bodySectionLi"></span></li>
-                                <li><strong>Role Score (1 to N/A): </strong> <span id="bodyRC" class="bodySectionLi"></span></li>
-                                <li><strong>Moderation Score (N/A to 2): </strong> <span id="bodyMC" class="bodySectionLi"></span></li>
-                                <li><strong>Cloud Services Score (N/A to 10+): </strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
+                                <li><strong>Puntuación Total (200 to 800): </strong> <span id="bodyTotalScore" class="bodySectionLi"></span></li>
+                                <li><strong>Percentil (0 to 100th): </strong> <span id="bodyPercentile" class="bodySectionLi"></span></li>
+                                <li><strong>Puntuación de actividad (10 to 98): </strong> <span id="bodyAC" class="bodySectionLi"></span></li>
+                                <li><strong>Puntuación de rol (1 to N/A): </strong> <span id="bodyRC" class="bodySectionLi"></span></li>
+                                <li><strong>Puntuación de moderación (N/A to 2): </strong> <span id="bodyMC" class="bodySectionLi"></span></li>
+                                <li><strong>Puntuación de servicios en la nube (N/A to 10+): </strong> <span id="bodyCSC" class="bodySectionLi"></span></li>
                                 <li><strong>Misc:</strong> <span id="bodyMisc" class="bodySectionLi"></span></li>
-                                <li><strong>Other:</strong> <span id="bodyOther" class="bodySectionLi"></span></li>
+                                <li><strong>Otros:</strong> <span id="bodyOther" class="bodySectionLi"></span></li>
                             </ul>
                         </p>
                     </div>
@@ -241,23 +245,23 @@
                     <!-- Bankovia User Info Box -->
                     <span id="bankovia" style="padding: 20px;"></span>
                     <div id="bodyCardTwo">
-                        <h2 id="h1EmbedStyle">&nbsp;Bankovia User Information</h2>
+                        <h2 id="h1EmbedStyle">&nbsp;Información de usuario de Bankovia</h2>
                         <p style="font-size:  20px;">
                             <ul>
-                                <li><strong>Account ID: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                <li><strong>Account Type [Personal/Business]: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>ID de la cuenta: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Tipo de cuenta [personal/comercial]: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                 <br>
-                                <li><strong>Reputation Points: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                <li><strong>Stolen From (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                <li><strong>Stolen From Others (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Puntos de reputación: </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Robado de (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                <li><strong>Robado de otros (Rubies): </strong> <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                 <br>
                                 <li>
-                                    <strong>Currencies:</strong>
+                                    <strong>Monedas:</strong>
                                     <ul>
-                                        <li>Gem Fragments: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                        <li>Rubies: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                        <li>Elixirs: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
-                                        <li>Crystals: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Fragmentos de gemas: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Rubíes: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Elixires: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
+                                        <li>Cristales: <span class="bodySectionLi" id="bodyBankA">SOON</span></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -272,13 +276,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">ERROR: Access Denied</h5>
+                    <h5 class="modal-title">ERROR: Acceso denegado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('invalidPIN') && visible('pre')">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>The Personal Indentification Number (PIN) you provided is invalid.</p>
+                    <p>El número de identificación personal (PIN) que proporcionó no es válido.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('invalidPIN') && visible('pre')" id="closeBtn">Close</button>
@@ -298,7 +302,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>You must supply an Offer Code to continue.</p>
+                    <p>Debe proporcionar un código de oferta para continuar.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('invalidKey') && visible('pre')" id="closeBtn">Close</button>
@@ -312,13 +316,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">ERROR: Server Error</h5>
+                    <h5 class="modal-title">ERROR: Error del Servidor</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="js:invisible('serviceE') && visible('pre')">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>The service is currently experiencing issues while processing, please try again later.</p>
+                    <p>El servicio está experimentando problemas durante el procesamiento. Vuelve a intentarlo más tarde..</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="js:invisible('serviceE') && visible('pre')" id="closeBtn">Close</button>
@@ -330,10 +334,10 @@
         <br><br>
 
         <!-- Footer -->
-        <a href="/loc-score-bankovia#nav" style="text-align: right;font-size: 14px;color: white;" class="smoothB">Go to Top</a>
+        <a href="/loc-score-bankovia#nav" style="justify-content: right;font-size: 14px;color: white;" class="smoothB">Go to Top</a>
         <div id="footer">
             <p>
-                <a href="https://loc.sh/discord">Discord Server</a>
+                <a href="https://loc.sh/discord">Servidor de Discord</a>
                 <br>
                 COMM REPORT DATA - BANKOVIA FIN SVCS
             </p>
